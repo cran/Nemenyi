@@ -19,7 +19,8 @@ function(matrix){
   #Perform pairwise comparisons of entities x,y (columns) and return p-value
   compare.p <- function(i,j){
     nemenyiValue <- abs(sumClassifier[i]-sumClassifier[j])/d 
-    p<-ptukey(nemenyiValue,kClassifiers,dof)    
+    nemenyiValue <- nemenyiValue * sqrt(2) #Divide by sqrt(2) to make this statistics compatible with studentized Range statistic
+    p<-(1-ptukey(nemenyiValue,kClassifiers,dof))
     return(p)
   }
   
