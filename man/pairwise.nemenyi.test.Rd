@@ -2,15 +2,18 @@
 \alias{pairwise.nemenyi.test}
 
 \title{
-Calculate the Nemenyi post-hoc test to find the groups of data that differ after a statistical test of multiple comparisons, e.g. the Friedman test.
+Calculate the Nemenyi post-hoc test to find pairs of samples that differ after the Friedman test.
 }
-\description{Performs pairwise comparisons of multiple entities over multiple domains and returns the corresponding p-values. The studentized range (q)-distribution is used from the Tukey-test package.}
+\description{Performs pairwise comparisons of multiple groups and returns the corresponding p-values. The studentized range (q)-distribution is used from the Tukey package.}
 \usage{
-pairwise.nemenyi.test(matrix)
+pairwise.nemenyi.test(matrix,digits)
 }
 \arguments{
   \item{matrix}{
-Matrix with performance measures for multiple entities (columns) over multiple domains (rows)
+Matrix with performance measures with columns=groups (columns) and rows=samples per group
+}
+\item{digits}{
+Number of digits to keep when rounding the samples
 }
 }
 \value{

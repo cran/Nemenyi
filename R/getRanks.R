@@ -22,7 +22,7 @@ function(rawVector,ndigits){
     #Replace raw numbers by ranks
     if(occurences>1){
       #If there is more than one occurence of the same number, assign the mean rank
-      occurenceIndices <- indices[(i-1):i+(occurences-1)]
+      occurenceIndices <- indices[(i):(i+(occurences)-1)]
       rawVector[occurenceIndices] <- ((occurences/2)*(i+j))/occurences
     }else{
       rawVector[indices[i]]<-i

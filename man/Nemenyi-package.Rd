@@ -1,13 +1,13 @@
 \name{Nemenyi}
 \docType{package}
 \title{Implementation of the Nemenyi post-hoc test to find the groups of data that differ after a statistical test of multiple comparisons, e.g. Friedman test.}
-\description{Use to performs pairwise comparisons of multiple entities over multiple domains. The studentized range (q)-distribution is used from the Tukey-test package.}
+\description{Use to performs pairwise comparisons of >2 groups. The studentized range (q)-distribution is used from the Tukey package.}
 \details{
 \tabular{ll}{
 Package: \tab Nemenyi\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-05-07\cr
+Version: \tab 1.2\cr
+Date: \tab 2014-08-18\cr
 License: \tab GPL-2\cr
 }
 }
@@ -27,5 +27,5 @@ classifierB<-c (75.86 , 73.18 , 69.08 , 74.05 , 74.71 , 65.90 , 76.25 , 75.10 , 
 classifierC<-c (84.19 , 85.91 , 83.83 , 85.11 , 86.38 , 81.20 , 86.38 , 86.75 , 88.03 , 87.18) /100
 m<-matrix(c(classifierA,classifierB,classifierC),nrow=10, byrow=FALSE)
 
-pairwise.nemenyi.test(m)
+pairwise.nemenyi.test(m,3)
 }

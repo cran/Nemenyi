@@ -1,17 +1,17 @@
 \name{getRanks}
 \alias{getRanks}
 \title{
-Calculate Friedman-style ranks for a matrix in which multiple entities are represented by columns and the domains they were evaluated on by rows.
+Calculate Friedman-style ranks for a matrix in which columns represent different groups with their respective samples.
 }
 \description{
-For each domain, entities are ranked according to their performance from highest to lowest value. In case of a tie, the mean of all ranks with the same value is used.
+For each row, the samples of individual groups are ranked from 1 to n. In case of a tie, the mean of all ranks with the same value is used. E.g. if there is no rank 2 assigned yet and there are 3 groups with the same sample value, they will be assigned the rank (2+3+4)/3=3.
 }
 \usage{
 getRanks(rawVector, ndigits)
 }
 \arguments{
   \item{rawVector}{
-Matrix with columns representing the entities to be compared and rows the domains they were evaluated on.
+Matrix with columns representing the groups to be compared and rows the individual samples.
 }
   \item{ndigits}{
 Identifying rank ties for floats is facilitated by rounding the ranks to n digits.

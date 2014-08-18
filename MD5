@@ -1,8 +1,8 @@
-9088476572ced75ba7f996b02844122a *DESCRIPTION
+f262f32e6813f5641d4df9d8c5e2f701 *DESCRIPTION
 8b54e5a89fbda3af5e077053d40bec76 *NAMESPACE
 cc4d2cabbf866670aa4c7c117ce3dcd6 *R/anRpackage-internal.R
-6695dd1b1c447d69aadfc07ea9952a5a *R/getRanks.R
-2e865044c3a339a17508ea9f3f4ebd67 *R/pairwise.nemenyi.test.R
-fdf8bacc3b1f13ed8391c6c8892e1b07 *man/Nemenyi-package.Rd
-47415897858538b914572f6f24817773 *man/getRanks.Rd
-b1eddd3828524b890e21c56db78ab6eb *man/pairwise.nemenyi.test.Rd
+06e78149ca692b0e9f70325d45a24bfc *R/getRanks.R
+5017b595032074ff9573c311ed116050 *R/pairwise.nemenyi.test.R
+2fb2645589e0775ddeb032f2e6a00cf9 *man/Nemenyi-package.Rd
+bd5a1466ec8ba3935c3d8b6f950112c8 *man/getRanks.Rd
+a862702f06409e127b24fa69e4b9a787 *man/pairwise.nemenyi.test.Rd

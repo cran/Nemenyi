@@ -1,5 +1,5 @@
 pairwise.nemenyi.test <-
-function(matrix){
+function(matrix,digits){
   
   #Get number of domains and classifiers to be compared
   nDomains<-nrow(matrix)
@@ -8,26 +8,28 @@ function(matrix){
   dof <- (nDomains-1)*(kClassifiers-1)
   
   #Calculate Friedman-type ranks for all classifiers (columns) and one domain
-  m <- t(apply(matrix, 1, getRanks, ndigits=3))
+  ranks <- t(apply(matrix, 1, getRanks, ndigits=digits))
   
   #Calc sum of ranks
-  sumClassifier <- apply(m,2,sum)
+  sumRanks <- apply(ranks,2,sum)
   
   #Calculate the divisor which makes the nemenyi values compatible with the studentized range (q)-distribution
-  d<-sqrt((kClassifiers*(kClassifiers+1))/(6*nDomains))
+  divisor<-sqrt((kClassifiers*(kClassifiers+1))/(6*nDomains))
   
   #Perform pairwise comparisons of entities x,y (columns) and return p-value
   compare.p <- function(i,j){
-    nemenyiValue <- abs(sumClassifier[i]-sumClassifier[j])/d 
-    nemenyiValue <- nemenyiValue * sqrt(2) #Divide by sqrt(2) to make this statistics compatible with studentized Range statistic
-    p<-(1-ptukey(nemenyiValue,kClassifiers,dof))
+    qStatistic <- abs(sumRanks[i]-sumRanks[j])/divisor
+    #Multiply by sqrt(2) to make this statistics compatible with studentized Range statistic
+    qStatistic <- qStatistic * sqrt(2) 
+    p<-(1-ptukey(qStatistic,kClassifiers,dof))
     return(p)
   }
   
   #Perform pairwise comparisons of entities x,y (columns) and return nemenyi value
   compare.stats <- function(i,j){
-    nemenyiValue <- abs(sumClassifier[i]-sumClassifier[j])/d 
-    return(nemenyiValue)
+    qStatistic <- abs(sumRanks[i]-sumRanks[j])/divisor
+    qStatistic <- qStatistic * sqrt(2)    
+    return(qStatistic)
   }
   
   METHOD <- "Nemenyi post-hoc test"
